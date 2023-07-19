@@ -7,4 +7,5 @@ export const Para = styled.p`
   max-width: ${(props) => props.mw};
   font-size: ${resFont(16, 24)};
   text-align: ${(props) => props.align};
+  opacity: 0.7;
 `;

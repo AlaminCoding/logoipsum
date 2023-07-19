@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+"use client";
+
+import { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,9 +14,14 @@ const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
 
   const handleMenu = () => {
-    setNavOpen(!navOpen);
+    if (navOpen) {
+      setNavOpen(false);
+      document.body.style.position = "static";
+    } else {
+      setNavOpen(true);
+      document.body.style.position = "fixed";
+    }
   };
-
   return (
     <NavHeader className="primary-container" open={navOpen}>
       <Link href="/" className="logo">
@@ -40,7 +47,7 @@ const Navbar = () => {
           <Button $bg={false}>Login</Button>
         </div>
       </nav>
-      <div className="toggle" onClick={handleMenu}>
+      <div className="toggle" onClick={() => handleMenu()}>
         {navOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
       </div>
     </NavHeader>
@@ -57,7 +64,7 @@ const NavHeader = styled.header`
   align-items: center;
   justify-content: space-between;
   gap: 50px;
-  z-index: 9999;
+
   @media ${sizes(1025)} {
     gap: 100px;
   }
@@ -73,6 +80,7 @@ const NavHeader = styled.header`
     padding: 0px 20px;
     display: block;
     transition: 0.7s ease-in-out;
+    z-index: 9999;
     ul {
       li {
         margin-top: 30px;

@@ -1,6 +1,8 @@
-import styled from "styled-components";
 import { MainTableData } from "utils/MainTableData";
+import { MainTable } from "styles/CommonTable";
+import styled from "styled-components";
 import { colors } from "styles/GlobalStyle";
+
 const Table = () => {
   return (
     <MainTable>
@@ -40,29 +42,7 @@ const Table = () => {
 
 export default Table;
 
-const MainTable = styled.table`
-  width: 100%;
-  margin-top: 50px;
-  font-size: 18px;
-  text-align: center;
-  th {
-    background-color: ${colors.lightGray};
-    &:nth-child(1) {
-      border-radius: 6px 0px 0px 6px;
-    }
-    &:nth-last-child(1) {
-      border-radius: 0px 6px 6px 0px;
-    }
-  }
-  td,
-  th {
-    padding: 24px 10px;
-  }
-`;
-
 const Td = styled.td`
-  border-radius: 6px;
-  border: 2px solid white;
   font-weight: ${(props) => props.bold};
   background-color: ${(props) => {
     if (props.val > 7) {

@@ -33,7 +33,7 @@ const Hero = () => {
         </Col>
         <Col lg={6}>
           <HeroImg>
-            <Image src={heroImg} alt="hero img" />
+            <Image src={heroImg} alt="hero img" priority />
           </HeroImg>
         </Col>
       </Row>
